@@ -1,0 +1,50 @@
+//Layla Mitchell
+public class Coffee {
+	private String name;		
+	private double caffeine;
+	
+	//Default constructor
+	public Coffee() {
+		this.name = "none";
+		this.caffeine = 50.0;
+	}
+	
+	//Accessors (Getters)
+	public String getName() {
+		return name;
+	}
+	
+	public double getCaffeine() {
+		return caffeine;
+	}
+	
+	//Mutators (Setters)
+	public void setName(String name) {
+		if (name != null && !name.isEmpty()) {
+			this.name = name;
+		}
+	}
+	
+	public void setCaffeine(double caffeine) {
+		//Only accept values between 50 and 300 (inclusive)
+		if(caffeine >= 50 && caffeine <=300) {
+			this.caffeine = caffeine;
+		} else {
+			System.out.println("Caffeine must be between 50 and 300 mg. Setting to default 50 mg.");
+			this.caffeine = 50.0;
+		}
+	}
+	
+	//RiskyAmount Method
+	//Calculates number of cups before caffeine becomes a health risk
+	public double riskyAmount() {
+		double cups = 180.0 / (caffeine / 100.0 * 6.0);
+		return cups;
+	}
+	
+	//Display method
+	public String toString() {
+		return "Coffee Name: " + name + "\nCaffeine per cup: " + caffeine + " mg\n";
+	}
+
+}
